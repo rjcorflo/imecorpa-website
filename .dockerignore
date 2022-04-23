@@ -1,0 +1,33 @@
+.git
+docker/
+vendor/
+.env
+.env.original
+docker-*
+README.md
+
+# Ignore core when managing all of a project's dependencies with Composer
+# including Drupal core.
+web/core/
+
+web/modules/contrib/
+web/themes/contrib/
+web/profiles/contrib/
+web/libraries/
+
+# Ignore dependencies that are managed with Composer.
+# Generally you should only ignore the root vendor directory. It's important
+# that core/assets/vendor and any other vendor directories within contrib or
+# custom module, theme, etc., are not ignored unless you purposely do so.
+web/vendor/
+
+# Ignore configuration files that may contain sensitive information.
+web/sites/*/settings*.php
+web/sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+web/sites/*/files
+web/sites/*/private
+
+# Ignore SimpleTest multi-site environment.
+web/sites/simpletest

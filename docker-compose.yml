@@ -1,0 +1,45 @@
+version: "3.5"
+
+services:
+  mariadb:
+    image: wodby/mariadb:$MARIADB_TAG
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+    volumes:
+      # - ./mariadb-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
+      - database:/var/lib/mysql # Use bind mount
+
+  drupal:
+    build:
+      context: .
+      dockerfile: docker/apache/Dockerfile
+    ports:
+      - 8080:80
+    environment:
+      DB_HOST: $DB_HOST
+      DB_PORT: $DB_PORT
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_NAME
+      DB_DRIVER: $DB_DRIVER
+      DRUPAL_HASH: $DRUPAL_HASH
+      COMPOSER_MEMORY_LIMIT: -1
+    volumes:
+      # this takes advantage of the feature in Docker that a new anonymous
+      # volume (which is what we're creating here) will be initialized with the
+      # existing content of the image at the same location
+      # - ./web/sites:/var/www/html/web/sites
+      - source: .
+        target: /opt/drupal
+        type: bind
+        consistency: delegated
+      # - ./docker/drupal/config/settings.php:/var/www/html/web/sites/default/settings.php
+      # - ./docker/apache/config/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    restart: always
+
+volumes:
+  database:

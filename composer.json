@@ -20,9 +20,18 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/gin": "^3.0@beta",
+        "drupal/gin_lb": "^1.0@beta",
         "drupal/gin_login": "^1.2",
         "drupal/gin_toolbar": "^1.0@beta",
+        "drupal/pathauto": "^1.9",
+        "drupal/redirect": "^1.7",
+        "drupal/xmlsitemap": "^1.2",
+        "drupal/yoast_seo": "^1.7",
         "drush/drush": "^11.0"
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "drupal/devel": "^4.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -34,7 +43,8 @@
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
+            "drupal/core-project-message": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "extra": {

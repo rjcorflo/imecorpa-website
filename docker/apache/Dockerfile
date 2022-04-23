@@ -2,9 +2,11 @@
 FROM drupal:9-apache
 # TODO switch to buster once https://github.com/docker-library/php/issues/865 is resolved in a clean way (either in the PHP image or in PHP itself)
 
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+
 # install the PHP extensions we need
 RUN apt-get update \
-	&& apt-get install -y git mariadb-client wget nano pv unzip \
+	&& apt-get install -y git mariadb-client wget nano pv unzip nodejs\
 	&& rm -rf /var/lib/apt/lists/*
 
 # install drush launcher, from https://github.com/drush-ops/drush-launcher#installation---phar,
@@ -29,6 +31,13 @@ RUN { \
 	echo 'error_log = /var/log/php_error.log'; \
 	echo 'xdebug.log = /var/log/xdebug.log'; \
 	} >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+RUN { \
+	echo 'max_execution_time = 120'; \
+	} >> /usr/local/etc/php/php.ini
+
+# Node modules
+RUN npm i -g gulp-cli
 
 # install phpredis extension
 ENV PHPREDIS_VERSION 5.3.4

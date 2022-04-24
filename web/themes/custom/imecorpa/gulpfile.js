@@ -32,7 +32,8 @@ const paths = {
     popper: './node_modules/@popperjs/core/dist/umd/popper.min.js',
     barrio: '../../contrib/bootstrap_barrio/js/barrio.js',
     dest: './js'
-  }
+  },
+  templates: './templates/**/*'
 }
 
 // Compile sass into CSS & auto-inject into browsers
@@ -76,10 +77,11 @@ function js () {
 // Static Server + watching scss/html files
 function serve () {
   browserSync.init({
-    proxy: 'https://www.drupal.org',
+    proxy: 'http://localhost:80',
+    reloadDelay: 1000
   })
 
-  gulp.watch([paths.scss.watch, paths.scss.bootstrap], styles).on('change', browserSync.reload)
+  gulp.watch([paths.scss.watch, paths.scss.bootstrap, paths.templates], styles).on('change', browserSync.reload)
 }
 
 const build = gulp.series(styles, gulp.parallel(js, serve))

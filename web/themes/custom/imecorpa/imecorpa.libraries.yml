@@ -1,12 +1,12 @@
 global-styling:
   version: VERSION
-  js: 
+  js:
     js/bootstrap.min.js: { weight: -48 }
     js/barrio.js: {}
-    js/custom.js: {}
+    # js/custom.js: {}
   css:
     component:
-      css/style.css: {}
+      css/style.min.css: {}
   dependencies:
     - core/jquery
     - core/drupal

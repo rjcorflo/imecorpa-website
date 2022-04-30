@@ -14,6 +14,10 @@
             "url": "https://packages.drupal.org/8"
         }
     ],
+    "scripts": {
+        "deployer": "deployer.phar",
+        "deployer:deploy": "@deployer deploy"
+    },
     "require": {
         "composer/installers": "^1.9",
         "drupal/bootstrap_barrio": ">5.1.3",
@@ -31,9 +35,11 @@
         "drush/drush": "^11.0"
     },
     "require-dev": {
+        "deployer/deployer": "^7",
         "drupal/coder": "^8.3",
         "drupal/devel": "^4.1",
-        "drupal/twig_xdebug": "^1.2"
+        "drupal/twig_xdebug": "^1.2",
+        "vlucas/phpdotenv": "^5.4"
     },
     "conflict": {
         "drupal/drupal": "*"

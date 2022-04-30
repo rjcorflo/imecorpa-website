@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   mariadb:
-    image: wodby/mariadb:$MARIADB_TAG
+    image: "mariadb:10.7.3"
     stop_grace_period: 30s
     environment:
       MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
@@ -26,7 +26,6 @@ services:
       DB_PASSWORD: $DB_PASSWORD
       DB_NAME: $DB_NAME
       DB_DRIVER: $DB_DRIVER
-      DRUPAL_HASH: $DRUPAL_HASH
       COMPOSER_MEMORY_LIMIT: -1
     volumes:
       # this takes advantage of the feature in Docker that a new anonymous
@@ -37,8 +36,7 @@ services:
         target: /opt/drupal
         type: bind
         consistency: delegated
-      # - ./docker/drupal/config/settings.php:/var/www/html/web/sites/default/settings.php
-      # - ./docker/apache/config/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - "$CONFIG_SSH_FILE:/opt/.ssh/config"
     restart: always
 
 volumes:

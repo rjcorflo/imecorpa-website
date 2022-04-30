@@ -67,7 +67,7 @@
 		"files.trimTrailingWhitespace": true,
 		"files.insertFinalNewline": true,
 		"html.format.enable": true,
-		"html.format.wrapLineLength": 80,
+		"html.format.wrapLineLength": 120,
 		"telemetry.enableTelemetry": false,
 		/* Empty Indent */
 		"emptyIndent.removeIndent": true,
@@ -102,7 +102,10 @@
 		"shevaua.phpcs",
 		"humao.rest-client",
 		"irongeek.vscode-env",
-		"calebporzio.better-phpunit"
+		"calebporzio.better-phpunit",
+		"eamodio.gitlens",
+		"mhutchie.git-graph",
+		"redhat.vscode-yaml"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

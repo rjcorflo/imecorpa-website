@@ -2,7 +2,7 @@
 docker/
 vendor/
 .env
-.env.original
+.env.example
 docker-*
 README.md
 

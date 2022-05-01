@@ -29,3 +29,4 @@ drupal_config
 
 # Others
 .env
+**/*.sql

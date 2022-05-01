@@ -6,7 +6,7 @@ RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 
 # install the PHP extensions we need
 RUN apt-get update \
-	&& apt-get install -y git mariadb-client wget nano pv unzip nodejs\
+	&& apt-get install -y git mariadb-client wget nano pv unzip nodejs rsync\
 	&& rm -rf /var/lib/apt/lists/*
 
 # install drush launcher, from https://github.com/drush-ops/drush-launcher#installation---phar,

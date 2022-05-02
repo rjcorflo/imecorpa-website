@@ -6,6 +6,8 @@
 
 namespace Deployer;
 
+use Dotenv\Dotenv;
+
 /**
  * @file
  */
@@ -13,7 +15,7 @@ namespace Deployer;
 require_once realpath(__DIR__ . '/vendor/autoload.php');
 
 // Looing for .env at the root directory.
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 require 'recipe/drupal8.php';
@@ -53,9 +55,35 @@ set('http_user', $remoteUser);
 set('writable_mode', 'chown');
 
 // Tasks.
-/* task('build', function () {
-    cd('{{release_path}}');
+task('deploy:theme:build', function () {
+    cd('{{release_path}}/web/themes/custom/imecorpa');
+    run('npm install');
     run('npm run build');
-});*/
+});
+
+task('deploy:cache:rebuild', function () {
+    cd('{{release_path}}');
+    run('./vendor/bin/drush cr');
+});
+
+task('config:upload', function () {
+  runLocally('drush cex -y');
+  upload('./config/', '{{release_path}}/config/');
+  cd('{{release_path}}');
+  // run('./vendor/bin/drush cim -y');
+});
+
+task('config:download', function () {
+  cd('{{current_path}}');
+  run('./vendor/bin/drush cex -y');
+  download('{{current_path}}/config/', './config/');
+  // runLocally('drush cim -y');
+});
+
+after('deploy:vendors', function () {
+  invoke('deploy:theme:build');
+  // invoke('config:upload');
+  invoke('deploy:cache:rebuild');
+});
 
 after('deploy:failed', 'deploy:unlock');

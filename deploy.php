@@ -8,10 +8,6 @@ namespace Deployer;
 
 use Dotenv\Dotenv;
 
-/**
- * @file
- */
-
 require_once realpath(__DIR__ . '/vendor/autoload.php');
 
 // Looing for .env at the root directory.

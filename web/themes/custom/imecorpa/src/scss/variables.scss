@@ -6,18 +6,16 @@ $yellow: #ffc107;
 $green: #28a745;
 $cyan: #17a2b8;
 $white: #fff;
-$gray-100: #e4e8ec;
-$gray-800: #343a40;
 
 // Theme Colors
-$primary: #5cb1e2;
-$secondary: #a0a0a0;
-$success: $green;
-$info: $cyan;
-$warning: $yellow;
-$danger: $red;
-$light: $gray-100;
-$dark: $gray-800;
+$primary: #007bc2;
+$secondary: #9e9d9d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f5f5f5;
+$dark: #343a40;
 
 // colors
 $primary-shade: $primary;
@@ -39,7 +37,7 @@ $accent-dark: shade-color($accent-shade, 12%);
 // Body
 // Settings for the `<body>` element.
 $body-bg: $white;
-$body-color: $gray-800;
+$body-color: $dark;
 $inverse-bg: $secondary;
 $inverse-color: $white;
 
@@ -57,6 +55,8 @@ $comment-spacer-y: 1.25em;
 $enable-responsive-font-sizes: true;
 $enable-shadows: false;
 $enable-gradients: false;
+
+$paragraph-margin-bottom: 0.4rem;
 
 // Breadcrumbs (Works only on Bootstrap 5+)
 // $breadcrumb-divider: quote(">");

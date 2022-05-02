@@ -106,7 +106,8 @@
 		"calebporzio.better-phpunit",
 		"eamodio.gitlens",
 		"mhutchie.git-graph",
-		"redhat.vscode-yaml"
+		"redhat.vscode-yaml",
+		"syler.sass-indented"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

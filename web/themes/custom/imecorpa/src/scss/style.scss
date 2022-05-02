@@ -13,16 +13,23 @@ body {
     background-color: $white;
 }
 
+.sidebar .block {
+    border-color: $light;
+}
 
 /* COLORS
 --------------------------------------------------*/
 
-a {
-    color: $accent-shade;
-}
+/*a {
+    color: $light;
+}*/
 
 .bg-inverse {
     background: $primary-shade !important;
+}
+
+.featured-bottom {
+    background-color: $light;
 }
 
 .site-footer {

@@ -37,9 +37,9 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "merge-stream": "^1.0.1",
-    "node-sass": "^7.0.1",
     "postcss": "^8.4.13",
     "postcss-inline-svg": "^5.0.0",
-    "postcss-pxtorem": "^5.1.1"
+    "postcss-pxtorem": "^5.1.1",
+    "sass-embedded": "^1.50.1"
   }
 }

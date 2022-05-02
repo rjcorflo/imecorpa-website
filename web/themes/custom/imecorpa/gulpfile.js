@@ -1,5 +1,5 @@
 const gulp = require('gulp'),
-  sass = require('gulp-sass')(require('node-sass')),
+  sass = require('gulp-sass')(require('sass-embedded')),
   sourcemaps = require('gulp-sourcemaps'),
   $ = require('gulp-load-plugins')(),
   del = require('del'),
@@ -49,10 +49,7 @@ function styles() {
   return gulp.src([paths.scss.src])
     .pipe(sourcemaps.init())
     .pipe(sass({
-      includePaths: [
-        './node_modules/bootstrap/scss',
-        '../../contrib/bootstrap_barrio/scss'
-      ]
+      includePaths: []
     }).on('error', sass.logError))
     .pipe($.postcss(postcssProcessors))
     .pipe(postcss([autoprefixer()]))

@@ -17,6 +17,14 @@ body {
     border-color: $light;
 }
 
+.layout > div {
+    padding: 0.5rem;
+}
+
+.featured-bottom section.region {
+    margin: 1.5rem 0;
+}
+
 /* COLORS
 --------------------------------------------------*/
 
@@ -34,7 +42,7 @@ body {
 
 .site-footer {
     background: map-get($theme-colors, 'secondary');
-    margin-top: 2rem;
+    padding-top: 1rem;
 }
 
 .menu--main li a {

@@ -14,11 +14,11 @@
 #}
 {% set attributes = attributes.addClass('site-branding') %}
 {% if site_logo or site_name %}
-  <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="navbar-brand">
+  <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="navbar-brand d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     {% if site_logo %}
-      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="img-fluid d-inline-block align-top" />
+      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="bi me-2" width="40" height="32" />
     {% endif %}
-    <span class="ml-2 d-none d-md-inline">{{ site_name }}</span>
+    <span class="ms-2 fs-4">{{ site_name }}</span>
   </a>
 {% endif %}
 {% if site_slogan %}

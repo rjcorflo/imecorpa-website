@@ -29,6 +29,7 @@ set('keep_releases', 5);
 // Drupal 8 shared dirs.
 set('shared_dirs', [
   'web/sites/{{drupal_site}}/files',
+  'backups',
 ]);
 
 // Drupal 8 shared files.
@@ -64,21 +65,21 @@ task('deploy:cache:rebuild', function () {
 
 task('config:upload', function () {
   runLocally('drush cex -y');
-  upload('./config/', '{{release_path}}/config/');
-  cd('{{release_path}}');
-  // run('./vendor/bin/drush cim -y');
+  upload('./config/', '{{current_path}}/config/');
+  cd('{{current_path}}');
+  // run('./vendor/bin/drush cim -y');.
 });
 
 task('config:download', function () {
   cd('{{current_path}}');
   run('./vendor/bin/drush cex -y');
   download('{{current_path}}/config/', './config/');
-  // runLocally('drush cim -y');
+  // runLocally('drush cim -y');.
 });
 
 after('deploy:vendors', function () {
   invoke('deploy:theme:build');
-  // invoke('config:upload');
+  // invoke('config:upload');.
   invoke('deploy:cache:rebuild');
 });
 

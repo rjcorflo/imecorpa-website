@@ -37,6 +37,7 @@
         "drupal/phpmailer_smtp": "^2.0",
         "drupal/redirect": "^1.7",
         "drupal/simple_sitemap": "^4.1",
+        "drupal/structure_sync": "^2.0",
         "drupal/twig_xdebug": "^1.2",
         "drupal/yoast_seo": "^1.7",
         "drush/drush": "^11.0"

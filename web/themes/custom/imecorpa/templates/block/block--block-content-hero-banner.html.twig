@@ -2,12 +2,12 @@
 <div class="container col-xxl-10 px-4 pt-3 pb--5">
   <div class="row flex-lg-row-reverse align-items-center justify-content-center  g-5 py-5">
     <div class="col-12 col-sm-10 col-lg-6">
-      <img src="{{ content.field_hero_image.0 }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      <img src="{{ content.field_hero_image.0 }}" class="d-block mx-lg-auto img-fluid img-thumbnail" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold lh-1 mb-3">{{ content.field_titulo }}</h1>
-      <p class="lead">{{ content.field_contenido}}</p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <p class="lead">{{ content.field_contenido.0 }}</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-3">
         {% if content.field_enlace_primario.0 %}
           <a role="button" href="{{ content.field_enlace_primario.0["#url"] }}" class="btn btn-primary btn-lg px-4 me-md-2">{{ content.field_enlace_primario.0["#title"] }}</a>
         {% endif %}

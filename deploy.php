@@ -24,7 +24,7 @@ $deployPath = $_ENV['DEPLOYER_DEPLOY_PATH'];
 // Config.
 set('repository', 'https://github.com/rjcorflo/imecorpa-website.git');
 
-set('keep_releases', 5);
+set('keep_releases', 3);
 
 // Drupal 8 shared dirs.
 set('shared_dirs', [
@@ -56,6 +56,7 @@ task('deploy:theme:build', function () {
     cd('{{release_path}}/web/themes/custom/imecorpa');
     run('npm install');
     run('npm run build');
+    run('rm -rf ./node_modules');
 });
 
 task('deploy:cache:rebuild', function () {

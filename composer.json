@@ -44,8 +44,9 @@
     "require-dev": {
         "deployer/deployer": "^7",
         "drupal/coder": "^8.3",
-        "drupal/twig_xdebug": "^1.2",
         "drupal/devel": "^4.1",
+        "drupal/mail_safety": "^1.2",
+        "drupal/twig_xdebug": "^1.2",
         "vlucas/phpdotenv": "^5.4"
     },
     "conflict": {

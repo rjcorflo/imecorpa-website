@@ -27,7 +27,6 @@ services:
       DB_NAME: $DB_NAME
       DB_DRIVER: $DB_DRIVER
       COMPOSER_MEMORY_LIMIT: -1
-    restart: always
 
 volumes:
   database:

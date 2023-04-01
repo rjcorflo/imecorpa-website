@@ -49,6 +49,7 @@
         "drupal/devel": "^4.1",
         "drupal/mail_safety": "^1.2",
         "drupal/twig_xdebug": "^1.2",
+        "drupal/webprofiler": "^9.0",
         "vlucas/phpdotenv": "^5.4"
     },
     "conflict": {

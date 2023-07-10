@@ -16,99 +16,103 @@
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
 	"workspaceFolder": "/opt/drupal",
 	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"terminal.integrated.profiles.linux": {
-			"bash": {
-				"path": "/bin/bash",
-				"icon": "terminal-bash"
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash",
+						"icon": "terminal-bash"
+					},
+					"zsh": {
+						"path": "zsh"
+					},
+					"fish": {
+						"path": "fish"
+					},
+					"tmux": {
+						"path": "tmux",
+						"icon": "terminal-tmux"
+					},
+					"pwsh": {
+						"path": "pwsh",
+						"icon": "terminal-powershell"
+					}
+				},
+				"terminal.integrated.defaultProfile.linux": "bash",
+				// Allow Xdebug to listen to requests from remote (or container)
+				"remote.localPortHost": "allInterfaces",
+				/* https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code */
+				"breadcrumbs.enabled": true,
+				"css.validate": true,
+				"diffEditor.ignoreTrimWhitespace": false,
+				"editor.tabSize": 2,
+				"editor.insertSpaces": true,
+				"editor.formatOnPaste": true,
+				"editor.formatOnSave": true,
+				"editor.renderWhitespace": "boundary",
+				"editor.wordWrapColumn": 80,
+				"editor.wordWrap": "off",
+				"editor.detectIndentation": true,
+				"editor.rulers": [
+					80
+				],
+				"files.associations": {
+					"*.inc": "php",
+					"*.module": "php",
+					"*.install": "php",
+					"*.theme": "php",
+					"*.tpl.php": "php",
+					"*.test": "php",
+					"*.php": "php",
+					"*.info": "ini"
+				},
+				"files.trimTrailingWhitespace": true,
+				"files.insertFinalNewline": true,
+				"html.format.enable": true,
+				"html.format.wrapLineLength": 120,
+				"telemetry.enableTelemetry": false,
+				/* Empty Indent */
+				"emptyIndent.removeIndent": true,
+				"emptyIndent.highlightIndent": false,
+				"emptyIndent.highlightColor": "rgba(246,36,89,0.6)",
+				/* PHPCS */
+				"phpcs.enable": true,
+				"phpcs.standard": "Drupal,DrupalPractice",
+				/* PHPCBF */
+				"phpcbf.standard": "Drupal",
+				/* PHP Docblocks */
+				"php-docblocker.gap": true,
+				"php-docblocker.useShortNames": true,
+				// Intelephense only: For Drupal compliant braces formatting use:
+				"intelephense.format.braces": "k&r",
+				/* PHP Validation */
+				"php.validate.enable": true,
+				"php.validate.executablePath": "/usr/local/bin/php",
+				"php.validate.run": "onType",
 			},
-			"zsh": {
-				"path": "zsh"
-			},
-			"fish": {
-				"path": "fish"
-			},
-			"tmux": {
-				"path": "tmux",
-				"icon": "terminal-tmux"
-			},
-			"pwsh": {
-				"path": "pwsh",
-				"icon": "terminal-powershell"
-			}
-		},
-		"terminal.integrated.defaultProfile.linux": "bash",
-		// Allow Xdebug to listen to requests from remote (or container)
-		"remote.localPortHost": "allInterfaces",
-		/* https://www.drupal.org/docs/develop/development-tools/configuring-visual-studio-code */
-		"breadcrumbs.enabled": true,
-		"css.validate": true,
-		"diffEditor.ignoreTrimWhitespace": false,
-		"editor.tabSize": 2,
-		"editor.insertSpaces": true,
-		"editor.formatOnPaste": true,
-		"editor.formatOnSave": true,
-		"editor.renderWhitespace": "boundary",
-		"editor.wordWrapColumn": 80,
-		"editor.wordWrap": "off",
-		"editor.detectIndentation": true,
-		"editor.rulers": [
-			80
-		],
-		"files.associations": {
-			"*.inc": "php",
-			"*.module": "php",
-			"*.install": "php",
-			"*.theme": "php",
-			"*.tpl.php": "php",
-			"*.test": "php",
-			"*.php": "php",
-			"*.info": "ini"
-		},
-		"files.trimTrailingWhitespace": true,
-		"files.insertFinalNewline": true,
-		"html.format.enable": true,
-		"html.format.wrapLineLength": 120,
-		"telemetry.enableTelemetry": false,
-		/* Empty Indent */
-		"emptyIndent.removeIndent": true,
-		"emptyIndent.highlightIndent": false,
-		"emptyIndent.highlightColor": "rgba(246,36,89,0.6)",
-		/* PHPCS */
-		"phpcs.enable": true,
-		"phpcs.standard": "Drupal,DrupalPractice",
-		/* PHPCBF */
-		"phpcbf.standard": "Drupal",
-		/* PHP Docblocks */
-		"php-docblocker.gap": true,
-		"php-docblocker.useShortNames": true,
-		// Intelephense only: For Drupal compliant braces formatting use:
-		"intelephense.format.braces": "k&r",
-		/* PHP Validation */
-		"php.validate.enable": true,
-		"php.validate.executablePath": "/usr/local/bin/php",
-		"php.validate.run": "onType",
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"xdebug.php-debug",
+				"bmewburn.vscode-intelephense-client",
+				"mrmlnc.vscode-apache",
+				"ikappas.composer",
+				"dmitrydorofeev.empty-indent",
+				"42crunch.vscode-openapi",
+				"neilbrayfield.php-docblocker",
+				"persoderlind.vscode-phpcbf",
+				"shevaua.phpcs",
+				"humao.rest-client",
+				"irongeek.vscode-env",
+				"calebporzio.better-phpunit",
+				"eamodio.gitlens",
+				"mhutchie.git-graph",
+				"redhat.vscode-yaml",
+				"syler.sass-indented",
+				"mblode.twig-language-2"
+			],
+		}
 	},
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"xdebug.php-debug",
-		"bmewburn.vscode-intelephense-client",
-		"mrmlnc.vscode-apache",
-		"ikappas.composer",
-		"dmitrydorofeev.empty-indent",
-		"42crunch.vscode-openapi",
-		"neilbrayfield.php-docblocker",
-		"persoderlind.vscode-phpcbf",
-		"shevaua.phpcs",
-		"humao.rest-client",
-		"irongeek.vscode-env",
-		"calebporzio.better-phpunit",
-		"eamodio.gitlens",
-		"mhutchie.git-graph",
-		"redhat.vscode-yaml",
-		"syler.sass-indented",
-		"mblode.twig-language-2"
-	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Uncomment the next line if you want start specific services in your Docker Compose config.

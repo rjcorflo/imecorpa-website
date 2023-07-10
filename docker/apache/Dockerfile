@@ -2,7 +2,7 @@
 FROM drupal:9-apache
 # TODO switch to buster once https://github.com/docker-library/php/issues/865 is resolved in a clean way (either in the PHP image or in PHP itself)
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 
 # install the PHP extensions we need
 RUN apt-get update \

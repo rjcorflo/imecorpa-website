@@ -15,7 +15,7 @@ $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 require 'recipe/drupal8.php';
-require 'recipe/composer.php';
+// require 'recipe/composer.php';
 
 $remoteHostname = $_ENV['DEPLOYER_HOSTNAME'];
 $remoteUser = $_ENV['DEPLOYER_USER'];
@@ -78,7 +78,11 @@ task('config:download', function () {
   // runLocally('drush cim -y');.
 });
 
-after('deploy:vendors', function () {
+after('deploy:update_code', function () {
+  invoke('deploy:vendors');
+});
+
+after('deploy:prepare', function () {
   invoke('deploy:theme:build');
   // invoke('config:upload');.
   invoke('deploy:cache:rebuild');

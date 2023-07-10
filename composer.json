@@ -15,7 +15,7 @@
         }
     ],
     "scripts": {
-        "deployer": "deployer.phar",
+        "deployer": "dep",
         "deployer:deploy": "@deployer deploy"
     },
     "require": {
@@ -32,7 +32,7 @@
         "drupal/gin_login": "^1.2",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/google_tag": "^1.5",
-        "drupal/leaflet": "^2.1",
+        "drupal/leaflet": "^10.0",
         "drupal/mailsystem": "^4.3",
         "drupal/module_filter": "^3.2",
         "drupal/pathauto": "^1.9",
